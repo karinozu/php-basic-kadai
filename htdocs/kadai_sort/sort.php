@@ -9,38 +9,33 @@
 <body>
     <p>
         <?php
-        // ソート関数の定義
-function sort_2way(&$array, $order) {
-    if ($order) {
-        // 昇順の場合
-        sort($array);
-    } else {
-        // 降順の場合
-        rsort($array);
-    }
-}
+        // 配列のソートと出力を行う関数の定義
+        function sort_and_output(&$array, $order) {
+            if ($order) {
+                // 昇順の場合
+                sort($array);
+                echo "昇順にソートします。<br>";
+            } else {
+                // 降順の場合
+                rsort($array);
+                echo "降順にソートします。<br>";
+            }
 
-// 配列を出力する関数の定義
-function output_array($array) {
-    foreach ($array as $num) {
-        echo $num . "<br>";
-    }
-}
+            // 配列の内容を出力
+            foreach ($array as $num) {
+                echo $num . "<br>";
+            }
+            echo "<br>"; // 区切り用の改行
+        }
 
-// ソートする配列の宣言
-$nums = [15, 4, 18, 23, 10];
+        // ソートする配列の宣言
+        $nums = [15, 4, 18, 23, 10];
 
-// 昇順でソート
-sort_2way($nums, true);
-echo "昇順にソートします。<br>";
-output_array($nums);
+        // 昇順でソートと出力
+        sort_and_output($nums, true);
 
-echo "<br>"; // 区切り用の改行
-
-// 降順でソート
-sort_2way($nums, false);
-echo "降順にソートします。<br>";
-output_array($nums);
+        // 降順でソートと出力
+        sort_and_output($nums, false);
         ?>
     </p>
 </body>
